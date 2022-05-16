@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -26,50 +27,48 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Text with Column and Row'),
+        title: const Text('Text with Column and Row2'),
       ),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.email_rounded, 
+                    color: Colors.black,),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.account_balance,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.account_circle),
+                  ),
+                ],
+              ),
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                Icon(Icons.email_rounded, 
-                color: Colors.cyan,),
-                SizedBox(
-                  width: 10,
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text('James'),
                 ),
-                Text('James'),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.account_balance,
-                  color: Colors.amberAccent,
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text('Cathy'),
                 ),
-                SizedBox(
-                  width: 10,
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Text('Kenny'),
                 ),
-                Text('Cathy'),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(Icons.account_circle),
-                SizedBox(
-                  width: 10,
-                ),
-                Text('Kenny'),
               ],
             ),
           ],
