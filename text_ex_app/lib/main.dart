@@ -40,8 +40,19 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
+            Divider(
+              height: 20, // 뭔지 모를떄 돋보기로 영역을 확인해본다 
+              color: Colors.red,
+              thickness: 1, // 줄의 두께
+            ),
             Text(
-              '유비'
+              '유비',
+              style: TextStyle(
+                color: Colors.amberAccent,
+                fontSize: 28,
+                fontWeight: FontWeight.bold, 
+                letterSpacing: 5,
+              ),
             ),
             Text(
               '관우'
@@ -49,8 +60,10 @@ class MyHomePage extends StatelessWidget {
             Text(
               '장비'
             ),
-            SizedBox(
-              height: 20,
+            Divider(
+              height: 20, // 뭔지 모를떄 돋보기로 영역을 확인해본다 
+              color: Colors.red,
+              thickness: 1, // 줄의 두께
             ),
             Text(
               '조조'
@@ -60,6 +73,11 @@ class MyHomePage extends StatelessWidget {
             ),
             Text(
               '동탁'
+            ),
+            Divider(
+              height: 20, // 뭔지 모를떄 돋보기로 영역을 확인해본다 
+              color: Colors.red,
+              thickness: 1, // 줄의 두께
             ),
           ],
         ),

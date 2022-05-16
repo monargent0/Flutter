@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.amberAccent,
         foregroundColor: Colors.black,
       ), // 앱바가 있으면 AOS 스타일, 없으면 IOS 스타일
-      body: Center(
+      body: Center( // x축 center
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center , // column은 y 방향이 주축 방향 
           children: const [
