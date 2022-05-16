@@ -34,36 +34,37 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Image Padding'),
+        backgroundColor: Colors.yellow,
+        foregroundColor: Colors.brown,
       ),
-      body: Center(
-        child: Column( 
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Image.asset(
-              'images/pikachu-1.jpg',
-              width: 120,
-              height: 120,
+                'images/pikachu-1.jpg',
+                width: 320,
+                height: 320,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Image.asset(
-              'images/pikachu-2.jpg',
-              width: 120,
-              height: 120,
+                'images/pikachu-2.jpg',
+                width: 320,
+                height: 320,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Image.asset(
-              'images/pikachu-3.jpg',
-              width: 120,
-              height: 120,
+                'images/pikachu-3.jpg',
+                width: 320,
+                height: 320,
               ),
             ),
-          ]
+          ]),
         ),
       ),
     );
