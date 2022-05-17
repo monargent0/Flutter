@@ -1,0 +1,188 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "character_app",
+            "cwd": "character_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "character_app (profile mode)",
+            "cwd": "character_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "character_app (release mode)",
+            "cwd": "character_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "image01_app",
+            "cwd": "image01_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "image01_app (profile mode)",
+            "cwd": "image01_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "image01_app (release mode)",
+            "cwd": "image01_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "image_app",
+            "cwd": "image_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "image_app (profile mode)",
+            "cwd": "image_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "image_app (release mode)",
+            "cwd": "image_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "image_fit_app",
+            "cwd": "image_fit_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "image_fit_app (profile mode)",
+            "cwd": "image_fit_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "image_fit_app (release mode)",
+            "cwd": "image_fit_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "test_app",
+            "cwd": "test_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "test_app (profile mode)",
+            "cwd": "test_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "test_app (release mode)",
+            "cwd": "test_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "text01_app",
+            "cwd": "text01_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "text01_app (profile mode)",
+            "cwd": "text01_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "text01_app (release mode)",
+            "cwd": "text01_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "text02_app",
+            "cwd": "text02_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "text02_app (profile mode)",
+            "cwd": "text02_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "text02_app (release mode)",
+            "cwd": "text02_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "text_app",
+            "cwd": "text_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "text_app (profile mode)",
+            "cwd": "text_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "text_app (release mode)",
+            "cwd": "text_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "text_ex_app",
+            "cwd": "text_ex_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "text_ex_app (profile mode)",
+            "cwd": "text_ex_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "text_ex_app (release mode)",
+            "cwd": "text_ex_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
