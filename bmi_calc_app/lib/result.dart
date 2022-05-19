@@ -21,7 +21,7 @@ class _ResultState extends State<Result> {
   void initState() {
     resultT = TextEditingController();
     txt = '';
-    pic = 'images/shh.png';
+    pic = 'images/clear.png';
     switchValue = false;
     super.initState();
   }
@@ -36,14 +36,19 @@ class _ResultState extends State<Result> {
         foregroundColor: Colors.blueGrey,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // const SizedBox(
-              //   height: 100,
-              // ),
+               Image.asset(
+                pic,
+                width: 200,
+                height: 350,
+              ),
+               const SizedBox(
+                height: 40,
+              ),
 
               SizedBox(
                 width: 100,
@@ -63,6 +68,7 @@ class _ResultState extends State<Result> {
                 style: const TextStyle(
                   color: Colors.red,
                   fontSize: 17,
+                  fontWeight: FontWeight.bold
                 ),
               ),
               const SizedBox(
@@ -80,11 +86,7 @@ class _ResultState extends State<Result> {
               const SizedBox(
                 height: 30,
               ),
-              Image.asset(
-                pic,
-                width: 200,
-                height: 350,
-              ),
+             
             ],
           ),
         ),
@@ -99,27 +101,27 @@ class _ResultState extends State<Result> {
 
     if (result <= 18.4) {
       setState(() {
-        txt = '저체중 입니다.';
+        txt = '저체중 입니다.\n좀 더 드셔야겠어요!';
         pic = 'images/one.png';
       });
     } else if (result <= 22.9) {
       setState(() {
-        txt = '정상체중 입니다.';
+        txt = '정상체중 입니다.\n아주 좋아요!';
         pic = 'images/two.png';
       });
     } else if (result <= 24.9) {
       setState(() {
-        txt = '과체중 입니다.';
+        txt = '과체중 입니다.\n조금만 걸어볼까요?';
         pic = 'images/three.png';
       });
     } else if (result <= 29.9) {
       setState(() {
-        txt = '비만 입니다.';
+        txt = '비만 입니다.\n운동을 시작해 볼까요?';
         pic = 'images/four.png';
       });
     } else {
       setState(() {
-        txt = '고도비만 입니다.';
+        txt = '고도비만 입니다.\n건강을 위해 움직일 때에요!';
         pic = 'images/five.png';
       });
     }
