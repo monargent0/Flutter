@@ -7,109 +7,316 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  // Property
+  late TextEditingController num1;
+  late TextEditingController num2;
+  late TextEditingController addresult;
+  late TextEditingController subresult;
+  late TextEditingController mulresult;
+  late TextEditingController divresult;
+  late bool switchValue1;
+  late bool switchValue2;
+  late bool switchValue3;
+  late bool switchValue4;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  @override
+  void initState() {
+    num1 = TextEditingController();
+    num2 = TextEditingController();
+    addresult = TextEditingController();
+    subresult = TextEditingController();
+    mulresult = TextEditingController();
+    divresult = TextEditingController();
+    switchValue1 = false;
+    switchValue2 = false;
+    switchValue3 = false;
+    switchValue4 = false;
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        appBar: AppBar(title: const Text('간단한 계산기')),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: num1,
+                  decoration: const InputDecoration(
+                    labelText: "첫번째 숫자를 입력하세요",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.purple),
+                    ),
+                  ),
+                  keyboardType:
+                      TextInputType.number, // number 숫자만 입력 . 기본타입은 Text
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  controller: num2,
+                  decoration: const InputDecoration(
+                    labelText: "두번째 숫자를 입력하세요",
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.purple),
+                    ),
+                  ),
+                  keyboardType:
+                      TextInputType.number, // number 숫자만 입력 . 기본타입은 Text
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // 정상입력 / 잘못입력 두가지 케이스
+                        if (num1.text.trim().isEmpty ||
+                            num2.text.trim().isEmpty) {
+                          // 공백 삭제 중요!
+                          errorSnackBar(context);
+                        } else {
+                          // calcAll(context); // 계산하기를 누르면 스위치 전부가 켜지면서 계산결과 출력
+                          addcalc(context);
+                          subcalc(context);
+                          mulcalc(context);
+                          divcalc(context);
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.deepPurpleAccent),
+                      child: const Text('계산하기'),
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        removeAll(context);
+                      },
+                      style: ElevatedButton.styleFrom(primary: Colors.pink),
+                      child: const Text(
+                        '지우기',
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Text('덧셈'),
+                    Switch(
+                      value: switchValue1, // 화면에 보여지는 value
+                      onChanged: (value) {
+                        // 사용자가 움직이는 값. 변수 이름은 value가 아니어도 된다.
+                        if (num1.text.trim().isEmpty ||
+                            num2.text.trim().isEmpty) {
+                          errorSnackBar(context);
+                        } else {
+                          setState(() {
+                            switchValue1 = value;
+                            addcalc(context);
+                          });
+                        }
+                      },
+                    ),
+                    const Text('뺄셈'),
+                    Switch(
+                      value: switchValue2, // 화면에 보여지는 value
+                      onChanged: (value) {
+                        // 사용자가 움직이는 값. 변수 이름은 value가 아니어도 된다.
+                        if (num1.text.trim().isEmpty ||
+                            num2.text.trim().isEmpty) {
+                          errorSnackBar(context);
+                        } else {
+                          setState(() {
+                            switchValue2 = value;
+                            subcalc(context);
+                          });
+                        }
+                      },
+                    ),
+                    const Text('곱셈'),
+                    Switch(
+                      value: switchValue3, // 화면에 보여지는 value
+                      onChanged: (value) {
+                        // 사용자가 움직이는 값. 변수 이름은 value가 아니어도 된다.
+                        if (num1.text.trim().isEmpty ||
+                            num2.text.trim().isEmpty) {
+                          errorSnackBar(context);
+                        } else {
+                          setState(() {
+                            switchValue3 = value;
+                            mulcalc(context);
+                          });
+                        }
+                      },
+                    ),
+                    const Text('나눗셈'),
+                    Switch(
+                      value: switchValue4, // 화면에 보여지는 value
+                      onChanged: (value) {
+                        // 사용자가 움직이는 값. 변수 이름은 value가 아니어도 된다.
+                        if (num1.text.trim().isEmpty ||
+                            num2.text.trim().isEmpty) {
+                          errorSnackBar(context);
+                        } else {
+                          setState(() {
+                            switchValue4 = value;
+                            divcalc(context);
+                          });
+                        }
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                TextField(
+                  controller: addresult,
+                  decoration: const InputDecoration(
+                    labelText: "덧셈 결과",
+                  ),
+                  readOnly: true, // number 숫자만 입력 . 기본타입은 Text
+                ),
+                TextField(
+                  controller: subresult,
+                  decoration: const InputDecoration(
+                    labelText: "뺄셈 결과",
+                  ),
+                  readOnly: true, // number 숫자만 입력 . 기본타입은 Text
+                ),
+                TextField(
+                  controller: mulresult,
+                  decoration: const InputDecoration(
+                    labelText: "곱셈 결과",
+                  ),
+                  readOnly: true, // number 숫자만 입력 . 기본타입은 Text
+                ),
+                TextField(
+                  controller: divresult,
+                  decoration: const InputDecoration(
+                    labelText: "나눗셈 결과",
+                  ),
+                  readOnly: true, // number 숫자만 입력 . 기본타입은 Text
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
+
+// Function
+
+// Desc : 사칙연산 계산
+  calcAll(BuildContext context) {
+    setState(() {
+      switchValue1 = true;
+      switchValue2 = true;
+      switchValue3 = true;
+      switchValue4 = true;
+    });
+    int result = int.parse(num1.text) + int.parse(num2.text);
+    addresult.text = result.toString();
+    result = int.parse(num1.text) - int.parse(num2.text);
+    subresult.text = result.toString();
+    result = int.parse(num1.text) * int.parse(num2.text);
+    mulresult.text = result.toString();
+    double result2 = int.parse(num1.text) / int.parse(num2.text);
+    divresult.text = result2.toStringAsFixed(5).toString();
+  }
+
+  // 사칙연산 각자 계산
+  addcalc(BuildContext context) {
+    if (switchValue1 == true) {
+      int result = int.parse(num1.text) + int.parse(num2.text);
+      addresult.text = result.toString();
+    } else if (switchValue1 == false) {
+      addresult.text = '';
+    }
+  }
+
+  subcalc(BuildContext context) {
+    if (switchValue2 == true) {
+      int result = int.parse(num1.text) - int.parse(num2.text);
+      subresult.text = result.toString();
+    } else if (switchValue2 == false) {
+      subresult.text = '';
+    }
+  }
+
+  mulcalc(BuildContext context) {
+    if (switchValue3 == true && num1.text.isNotEmpty && num2.text.isNotEmpty) {
+      int result = int.parse(num1.text) * int.parse(num2.text);
+      mulresult.text = result.toString();
+    } else if (switchValue3 == false) {
+      mulresult.text = '';
+    }
+  }
+
+  divcalc(BuildContext context) {
+    if (switchValue4 == true) {
+      double result2 = int.parse(num1.text) / int.parse(num2.text);
+      divresult.text = result2.toStringAsFixed(5).toString();
+    } else if (switchValue4 == false) {
+      divresult.text = '';
+    }
+  }
+
+// Desc : 텍스트 필드에 입력을 안하고 버튼을 눌렀을 경우
+  errorSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text('숫자를 입력하세요!'),
+      duration: Duration(seconds: 1),
+      backgroundColor: Colors.red,
+    ));
+  }
+
+// Desc : 결과 모두 지우기
+  removeAll(BuildContext context) {
+    num1.text = '';
+    num2.text = '';
+    addresult.text = '';
+    subresult.text = '';
+    mulresult.text = '';
+    divresult.text = '';
+  }
+} //End
