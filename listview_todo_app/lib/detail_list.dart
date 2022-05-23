@@ -25,7 +25,8 @@ class _DetailListState extends State<DetailList> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              WareHouse.imagePath,
+              WareHouse.todolist.imagePath,
+              // WareHouse.imagePath,
               width: 100,
               height: 100,
               fit: BoxFit.fitHeight,
@@ -34,7 +35,8 @@ class _DetailListState extends State<DetailList> {
               height: 20,
             ),
             Text(
-              WareHouse.workList,
+              WareHouse.todolist.workList,
+              // WareHouse.workList,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold

@@ -54,6 +54,9 @@ class _TableListState extends State<TableList> {
                   onTap: () {
                     WareHouse.workList = todolist[position].workList;
                     WareHouse.imagePath = todolist[position].imagePath;
+                    //---
+                    WareHouse.todolist = todolist[position];
+                    //---
                     Navigator.push(
                         context,
                         MaterialPageRoute(
