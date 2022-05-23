@@ -54,7 +54,7 @@ class _TableListState extends State<TableList> {
                   onTap: () {
                     WareHouse.workList = todolist[position].workList;
                     WareHouse.imagePath = todolist[position].imagePath;
-                    //---
+                    //--- 투두 리스트에 저장하는 방법 
                     WareHouse.todolist = todolist[position];
                     //---
                     Navigator.push(
