@@ -38,8 +38,8 @@ class _TableListState extends State<TableList> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/insert'
-                ).then((value) => rebuildData()); // .then 버튼을 클릭해서 넘어갔다 온 후 에 작동한다 context가 넘긴 정보를 알고있기 때문에 가능!
+                Navigator.pushNamed(context, '/insert').then((value) =>
+                    rebuildData()); // .then 버튼을 클릭해서 넘어갔다 온 후 에 작동한다 context가 넘긴 정보를 알고있기 때문에 가능!
               },
               icon: const Icon(Icons.add_outlined)),
         ],
@@ -55,7 +55,7 @@ class _TableListState extends State<TableList> {
                   onTap: () {
                     WareHouse.workList = todolist[position].workList;
                     WareHouse.imagePath = todolist[position].imagePath;
-                    //--- 투두 리스트에 저장하는 방법 
+                    //--- 투두 리스트에 저장하는 방법
                     WareHouse.todolist = todolist[position];
                     //---
                     Navigator.push(
@@ -92,10 +92,18 @@ class _TableListState extends State<TableList> {
   }
 
 //----Function
-rebuildData(){
-  setState(() {
-    todolist.add(TodoList(imagePath: WareHouse.imagePath, workList: WareHouse.workList));  
-  });
-}//
+  rebuildData() {
+    setState(() {
+      if (WareHouse.action == true) {
+        // 저장되어서 화면만 이동해도 계속 추가되는 버그 생김 ; 지금 만든 투두인지 전에 만든 투두인지 구분하는게 필요하다!
+        todolist.add(TodoList(
+            imagePath: WareHouse.imagePath, workList: WareHouse.workList));
+        WareHouse.action = false;
 
-} // 
+        // 투두리스트 한번에 받고 추가하기 
+        // todolist.add(WareHouse.todolist);
+      }
+    });
+  } //
+
+} //
