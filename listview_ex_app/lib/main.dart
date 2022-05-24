@@ -64,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     return Scaffold(
       appBar: AppBar(
         title: const Text('국가명 맞추기'),
+        elevation: 0,
         ),
       body: TabBarView(
         controller: controller,
