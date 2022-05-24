@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:listview_todo_app/detail_list.dart';
-import 'package:listview_todo_app/todo_list.dart';
-import 'package:listview_todo_app/warehouse.dart';
+import 'package:listview_todo_app/view/detail_list.dart';
+import 'package:listview_todo_app/model/todo_list.dart';
+import 'package:listview_todo_app/model/warehouse.dart';
 
 class TableList extends StatefulWidget {
   const TableList({Key? key}) : super(key: key);
@@ -38,7 +38,8 @@ class _TableListState extends State<TableList> {
         actions: [
           IconButton(
               onPressed: () {
-                //
+                Navigator.pushNamed(context, '/insert'
+                ).then((value) => rebuildData()); // .then 버튼을 클릭해서 넘어갔다 온 후 에 작동한다 context가 넘긴 정보를 알고있기 때문에 가능!
               },
               icon: const Icon(Icons.add_outlined)),
         ],
@@ -89,4 +90,12 @@ class _TableListState extends State<TableList> {
       ),
     );
   }
-}
+
+//----Function
+rebuildData(){
+  setState(() {
+    todolist.add(TodoList(imagePath: WareHouse.imagePath, workList: WareHouse.workList));  
+  });
+}//
+
+} // 

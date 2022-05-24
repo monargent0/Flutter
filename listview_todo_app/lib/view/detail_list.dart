@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:listview_todo_app/warehouse.dart';
+import 'package:listview_todo_app/model/warehouse.dart';
 
 class DetailList extends StatefulWidget {
   const DetailList({Key? key}) : super(key: key);
@@ -25,8 +25,8 @@ class _DetailListState extends State<DetailList> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              WareHouse.todolist.imagePath,
-              // WareHouse.imagePath,
+              //WareHouse.todolist.imagePath,
+              WareHouse.imagePath,
               width: 100,
               height: 100,
               fit: BoxFit.fitHeight,
@@ -35,8 +35,8 @@ class _DetailListState extends State<DetailList> {
               height: 20,
             ),
             Text(
-              WareHouse.todolist.workList,
-              // WareHouse.workList,
+              //WareHouse.todolist.workList,
+              WareHouse.workList,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold
