@@ -96,6 +96,8 @@ class _EditViewState extends State<EditView> {
                   status.add(switchColor); // [0]
                   status.add(switchLamp); // [1]
                   Navigator.pop(context , status); // test -> value 로 받는다. 하나밖에 못 받기 때문에 이때 List를 사용해서 여러 값을 보낼 수 있다.
+                  // Navigator.pop(context , [switchColor , switchLamp]]); 
+                  
                 },
                 child: const Text('OK'))
           ],
