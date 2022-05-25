@@ -1,5 +1,3 @@
-import 'package:listview_todo_app/model/todo_list.dart';
-
 class WareHouse{
   static String workList = '';
   static String imagePath = '';
