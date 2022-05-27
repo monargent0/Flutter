@@ -33,7 +33,9 @@ class _UpdateSState extends State<UpdateS> {
     phoneController = TextEditingController();
 
     result = '';
-
+    // widget.data[index].forEach((key, value) { 
+    //   list.add(value);
+    // }; // List로 데이터 가져오기 가능은 함! 
     codeController.text = widget.data['code'];
     nameController.text = widget.data['name'];
     deptController.text = widget.data['dept'];
