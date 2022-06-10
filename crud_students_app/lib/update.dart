@@ -5,14 +5,14 @@ import 'package:http/http.dart' as http;
 
 class UpdateS extends StatefulWidget {
   final Map data;
-  const UpdateS({Key? key , required this.data  }) : super(key: key);
+  const UpdateS({Key? key, required this.data}) : super(key: key);
 
   @override
   State<UpdateS> createState() => _UpdateSState();
 }
 
 class _UpdateSState extends State<UpdateS> {
-   // property
+  // property
   late TextEditingController codeController;
   late TextEditingController nameController;
   late TextEditingController deptController;
@@ -33,14 +33,13 @@ class _UpdateSState extends State<UpdateS> {
     phoneController = TextEditingController();
 
     result = '';
-    // widget.data[index].forEach((key, value) { 
+    // widget.data[index].forEach((key, value) {
     //   list.add(value);
-    // }; // List로 데이터 가져오기 가능은 함! 
+    // }; // List로 데이터 가져오기 가능은 함!
     codeController.text = widget.data['code'];
     nameController.text = widget.data['name'];
     deptController.text = widget.data['dept'];
     phoneController.text = widget.data['phone'];
-
   }
 
   @override
@@ -86,7 +85,6 @@ class _UpdateSState extends State<UpdateS> {
                     phone = phoneController.text;
 
                     updateAction();
-
                   },
                   child: const Text('수정')),
             ],
@@ -106,17 +104,16 @@ class _UpdateSState extends State<UpdateS> {
     setState(() {
       var dataConvertedJSON = json.decode(utf8.decode(response.bodyBytes));
       result = dataConvertedJSON['result'];
-      
+
       if (result == 'OK') {
         _showDialog(context);
       } else {
         errorSnackBar(context);
       }
-      
     });
 
     return result;
-  } // insert
+  } // update
 
   _showDialog(BuildContext context) {
     showDialog(
