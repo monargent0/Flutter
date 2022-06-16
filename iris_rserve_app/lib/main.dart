@@ -52,6 +52,7 @@ class _IrisState extends State<Iris> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.deepPurple[900],
       appBar: AppBar(
         title: const Text('Iris 품종 예측'),
       ),
